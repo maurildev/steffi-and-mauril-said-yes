@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer utilities {
+  .overlay-dark {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
