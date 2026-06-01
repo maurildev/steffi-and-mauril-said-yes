@@ -171,13 +171,17 @@
         }
 
         .hero__logo {
-            height: 450px;
+            height: clamp(280px, 45vh, 500px);
             width: auto;
+            max-width: 85vw;
             filter: brightness(0) invert(1);
         }
 
         @media (max-width: 768px) {
-            .hero__logo { height: 300px; }
+            .hero__logo {
+                height: clamp(220px, 40vh, 340px);
+                max-width: 80vw;
+            }
         }
 
         /* ══════════════════════════════════════
