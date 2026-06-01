@@ -1,90 +1,479 @@
-<!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Steffi & Mauril Wedding</title>
-    <meta name="description" content="" />
-    <meta property="og:title" content="" />
-    <meta property="og:type" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:image:alt" content="" />
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Carattere&display=swap"
-      rel="stylesheet"
-    />
+<!doctype html><html class="no-js" lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>S & M Hochzeit</title><meta name="description" content="Wir heiraten – alle wichtigen Infos zur Hochzeit von Steffi & Mauril"><meta property="og:title" content="Steffi & Mauril – Wir sagen Ja!"><meta property="og:type" content="website"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Carattere&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"><style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link href="./css/style.css" />
-    <link href="./css/tailwind.css" />
+        :root {
+            --cream:   #faf7f2;
+            --warm:    #f2ebe0;
+            --sage:    #8a9e8c;
+            --gold:    #c4a96a;
+            --gold-lt: #e8d9b5;
+            --dark:    #2c2a27;
+            --mid:     #6b6560;
+            --white:   #ffffff;
+        }
 
-    <meta name="theme-color" content="#fafafa" />
-    <script defer="defer" src="./js/app.js"></script>
-  </head>
-  <body class="m-0 p-0">
-    <header
-      class="relative w-full h-screen max-h-[600px] lg:max-h-[900px] overflow-hidden"
-    >
-      <video
-        class="absolute top-0 left-0 w-full h-full object-cover lg:hidden"
-        autoplay
-        loop
-        muted
-        playsinline
-      >
-        <source src="video/header-small.mp4" type="video/mp4" />
-        Your browser does not support the video tag.</video
-      ><video
-        class="hidden lg:block absolute top-0 left-0 w-full h-full object-cover"
-        autoplay
-        loop
-        muted
-        playsinline
-      >
-        <source src="video/header-large.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div
-        class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none overlay-dark"
-      ></div>
-      <div
-        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
-      >
-        <img src="img/logo-white.svg" alt="Logo" class="h-64" />
-      </div>
-    </header>
-    <section class="py-12 md:py-48 px-8 bg-white">
-      <div
-        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-      >
-        <div class="text-content">
-          <h2
-            class="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-            style="font-family: &quot;Carattere&quot;, cursive"
-          >
-            Wir sagen Ja !
-          </h2>
-          <p class="text-lg text-gray-700 leading-relaxed mb-4">
-            Auf dieser Seite findet ihr in Kürze alle wichtigen Informationen
-            rund um unsere Hochzeit – von Ort und Ablauf bis zu allem, was ihr
-            für diesen besonderen Tag wissen müsst. Merkt euch schon jetzt das
-            Datum vor, weitere Details folgen ganz bald.
-          </p>
-        </div>
-        <div class="video-content">
-          <video
-            class="w-full h-[400px] rounded-lg shadow-lg object-cover"
-            controls
-          >
-            <source src="video/intro.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </section>
-    <script src="js/app.js"></script>
-  </body>
-</html>
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        p { line-height: 1.85; color: var(--mid); font-size: 1rem; }
+        p + p { margin-top: 1rem; }
+
+        /* ══════════════════════════════════════
+           NAV
+        ══════════════════════════════════════ */
+
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 2.5rem;
+            gap: 2rem;
+            background: var(--white);
+            box-shadow: 0 1px 0 var(--gold-lt);
+        }
+
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            font-family: 'Jost', sans-serif;
+            font-weight: 400;
+            font-size: .72rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--mid);
+            transition: color .2s;
+        }
+
+        .nav__link:hover { color: var(--gold); }
+
+        .nav__burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            order: -1;
+        }
+
+        .nav__burger-bar {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--dark);
+            transition: transform .3s, opacity .3s;
+        }
+
+        .nav__burger--open .nav__burger-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .nav__burger--open .nav__burger-bar:nth-child(2) { opacity: 0; }
+        .nav__burger--open .nav__burger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        /* ── Mobile drawer ── */
+
+        .nav-drawer {
+            display: none;
+            position: fixed;
+            top: 80px; left: 0; right: 0;
+            background: rgba(255,255,255,.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gold-lt);
+            flex-direction: column;
+            align-items: center;
+            z-index: 199;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity .25s ease, transform .25s ease;
+            pointer-events: none;
+        }
+
+        .nav-drawer--open { opacity: 1; transform: none; pointer-events: all; }
+
+        .nav-drawer__link {
+            font-family: 'Jost', sans-serif;
+            font-weight: 400;
+            font-size: .78rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--mid);
+            padding: 1.1rem 2rem;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid var(--gold-lt);
+            transition: color .2s, background .2s;
+        }
+
+        .nav-drawer__link:last-child { border-bottom: none; }
+        .nav-drawer__link:hover { color: var(--gold); background: var(--warm); }
+
+        @media (max-width: 768px) {
+            .nav__links { display: none; }
+            .nav__burger { display: flex; }
+            .nav-drawer { display: flex; }
+            .nav { justify-content: flex-start; }
+        }
+
+        /* ══════════════════════════════════════
+           HERO
+        ══════════════════════════════════════ */
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100svh;
+            max-height: 900px;
+            overflow: hidden;
+        }
+
+        .hero__image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+        }
+
+        .hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,.75) 0%, rgba(0,0,0,.75) 100%);
+            z-index: 1;
+        }
+
+        .hero__content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            animation: fadeUp .9s ease both;
+            text-align: center;
+        }
+
+        .hero__logo {
+            height: 450px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .hero__logo { height: 300px; }
+        }
+
+        /* ══════════════════════════════════════
+           SECTION (shared)
+        ══════════════════════════════════════ */
+
+        .section {
+            padding: 6rem 1.5rem;
+        }
+
+        .section__inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section__label {
+            font-family: 'Jost', sans-serif;
+            font-weight: 400;
+            font-size: .7rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section__title {
+            font-family: 'Carattere', cursive;
+            font-size: clamp(2.6rem, 6vw, 4.2rem);
+            color: var(--dark);
+            line-height: 1.1;
+            margin-bottom: 1.8rem;
+        }
+
+        .section__divider {
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        /* ══════════════════════════════════════
+           INTRO
+        ══════════════════════════════════════ */
+
+        .intro {
+            background: var(--white);
+        }
+
+        .intro .section__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .intro__photo {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.12);
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .intro .section__inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        /* ══════════════════════════════════════
+           INFO CARDS
+        ══════════════════════════════════════ */
+
+        .info-section {
+            background: var(--warm);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            border: 1px solid var(--gold-lt);
+            padding: 2rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .info-card__icon {
+            font-size: 1.5rem;
+            margin-bottom: .4rem;
+        }
+
+        .info-card__label {
+            font-family: 'Jost', sans-serif;
+            font-weight: 400;
+            font-size: .68rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .info-card__title {
+            font-family: 'Carattere', cursive;
+            font-size: 1.8rem;
+            color: var(--dark);
+            line-height: 1.15;
+        }
+
+        .info-card__text {
+            font-size: .88rem;
+            color: var(--mid);
+            line-height: 1.7;
+            margin-top: .2rem;
+        }
+
+        .info-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-top: .5rem;
+            font-size: .72rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+            transition: color .2s;
+            width: fit-content;
+            border-bottom: 1px solid var(--gold-lt);
+            padding-bottom: .1rem;
+        }
+
+        .info-card__link:hover { color: var(--dark); border-color: var(--dark); }
+
+        @media (max-width: 900px) {
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 520px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ══════════════════════════════════════
+           TIMELINE
+        ══════════════════════════════════════ */
+
+        .schedule {
+            background: var(--cream);
+        }
+
+        .timeline {
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 80px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(196,169,106,.3);
+        }
+
+        .timeline__item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--gold-lt);
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity .5s ease, transform .5s ease;
+        }
+
+        .timeline__item--visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .timeline__item:last-child { border-bottom: none; }
+
+        .timeline__time {
+            min-width: 80px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--gold);
+            padding-right: 2rem;
+            text-align: right;
+            padding-top: .1rem;
+        }
+
+        .timeline__dot {
+            position: relative;
+            min-width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+            margin-top: .45rem;
+            flex-shrink: 0;
+        }
+
+        .timeline__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: .2rem;
+        }
+
+        .timeline__description { font-size: .85rem; color: var(--mid); }
+
+        @media (max-width: 600px) {
+            .timeline::before { left: 70px; }
+        }
+
+        /* ══════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════ */
+
+        .footer {
+            background: var(--dark);
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .footer__names {
+            font-family: 'Carattere', cursive;
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: .5rem;
+        }
+
+        .footer__tagline {
+            font-size: .78rem;
+            letter-spacing: .15em;
+            color: rgba(250,247,242,.4);
+            text-transform: uppercase;
+        }
+
+        /* ══════════════════════════════════════
+           ANIMATIONS & UTILITIES
+        ══════════════════════════════════════ */
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translate(-50%, calc(-50% + 20px)); }
+            to   { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .u-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .u-reveal--visible { opacity: 1; transform: none; }</style><script defer="defer" src="./js/app.js"></script></head><body><nav class="nav" id="main-nav"><button class="nav__burger" id="burger" aria-label="Menü öffnen"><span class="nav__burger-bar"></span> <span class="nav__burger-bar"></span> <span class="nav__burger-bar"></span></button><div class="nav__links"><a class="nav__link" href="#info">Alle Infos</a> <a class="nav__link" href="#ablauf">Ablauf</a></div></nav><div class="nav-drawer" id="drawer"><a href="#info" class="nav-drawer__link">Alle Infos</a> <a href="#ablauf" class="nav-drawer__link">Ablauf</a></div><header class="hero"><img class="hero__image" srcset="/img/header-mobile.jpg 480w, /img/header-desktop.jpg 800w" alt="Mainwiese Eventlocation"><div class="hero__overlay"></div><div class="hero__content"><img class="hero__logo" src="img/logo.svg" alt="Steffi & Mauril"></div></header><section class="section intro" id="intro"><div class="section__inner"><div class="u-reveal"><p class="section__label">Unsere Hochzeit</p><h2 class="section__title">Wir sagen Ja!</h2><div class="section__divider"></div><p>Auf dieser Seite findet ihr alle wichtigen Informationen rund um unsere Hochzeit – von Ort und Ablauf bis zu allem, was ihr für diesen besonderen Tag wissen müsst.</p></div><div class="u-reveal"><img class="intro__photo" src="/img/engagement.jpg" alt="Steffi & Mauril"></div></div></section><section class="section info-section" id="info"><div class="section__inner"><div class="u-reveal"><p class="section__label">Was ihr wissen müsst</p><h2 class="section__title">Alle Infos auf einen Blick</h2><div class="section__divider"></div><p>Wir freuen uns sehr darauf, diesen besonderen Tag mit euch zu feiern und bitten euch, uns bis zum <strong style="color:var(--dark); font-weight:500;">01. Juli 2026</strong> Bescheid zu geben, ob ihr dabei sein könnt.</p></div><div class="info-grid u-reveal"><div class="info-card"><div class="info-card__icon">📅</div><span class="info-card__label">Datum</span> <span class="info-card__title">05. September 2026</span><p class="info-card__text">Samstag</p></div><div class="info-card"><div class="info-card__icon">🕒</div><span class="info-card__label">Uhrzeit</span> <span class="info-card__title">15:00 Uhr</span><p class="info-card__text">Einlass ab 15:00 Uhr<br>Trauung um 15:30 Uhr</p></div><div class="info-card"><div class="info-card__icon">📍</div><span class="info-card__label">Location</span> <span class="info-card__title">Mainwiese</span><p class="info-card__text">Am Maingarten 408<br>63075 Offenbach am Main</p><a class="info-card__link" href="https://share.google/LHQYBXyavmR5kXj8n" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps öffnen</a></div><div class="info-card"><div class="info-card__icon">👨‍👩‍👧‍👦</div><span class="info-card__label">Anmeldung</span> <span class="info-card__title">Personen & Kinder</span><p class="info-card__text">Bitte gebt an, mit wie vielen Personen ihr kommt – natürlich inklusive eurer kleinen Lieblingsmenschen, damit wir alles schön planen können.</p></div><div class="info-card"><div class="info-card__icon">🎩</div><span class="info-card__label">Dresscode</span> <span class="info-card__title">Schick-sommerlich</span><p class="info-card__text">Wir feiern in einer wunderschönen Outdoor-Location mitten im Grünen. Wir freuen uns über einen Look, in dem ihr euch wohlfühlt.</p></div><div class="info-card"><div class="info-card__icon">💛</div><span class="info-card__label">Bitte beachten</span> <span class="info-card__title">Kein +1</span><p class="info-card__text">Da wir unsere Gästeliste mit viel Liebe und Bedacht zusammengestellt haben, bitten wir euch herzlich, von zusätzlichen Begleitpersonen abzusehen.</p></div></div></div></section><section class="section schedule" id="ablauf"><div class="section__inner"><div class="u-reveal"><p class="section__label">Der Tag</p><h2 class="section__title">Unser Ablauf</h2><div class="section__divider"></div><p>Damit ihr wisst, was euch erwartet, findet ihr hier unseren geplanten Ablauf.</p></div><div class="timeline"><div class="timeline__item"><div class="timeline__time">15:00</div><div class="timeline__dot"></div><div class="timeline__body"><h3 class="timeline__title">Ankommen</h3><p class="timeline__description">Empfang der Gäste</p></div></div><div class="timeline__item"><div class="timeline__time">15:30</div><div class="timeline__dot"></div><div class="timeline__body"><h3 class="timeline__title">Freie Trauung</h3><p class="timeline__description">Das Ja-Wort</p></div></div><div class="timeline__item"><div class="timeline__time">16:00</div><div class="timeline__dot"></div><div class="timeline__body"><h3 class="timeline__title">Drinks & Kaffee</h3><p class="timeline__description">Zeit zum Anstoßen & Genießen mit Drinks & Brewdis Kaffee</p></div></div><div class="timeline__item"><div class="timeline__time">18:00</div><div class="timeline__dot"></div><div class="timeline__body"><h3 class="timeline__title">Abendessen</h3><p class="timeline__description">Gemeinsames Abendbuffet mit allen Gästen</p></div></div><div class="timeline__item"><div class="timeline__time">20:30</div><div class="timeline__dot"></div><div class="timeline__body"><h3 class="timeline__title">Anschnitt der Hochzeitstorte</h3><p class="timeline__description">Ein süßer Moment</p></div></div><div class="timeline__item"><div class="timeline__time">21:00</div><div class="timeline__dot"></div><div class="timeline__body"><h3 class="timeline__title">Feiern bis in die Nacht</h3><p class="timeline__description">Party & Tanz</p></div></div><div class="timeline__item"><div class="timeline__time">01:00</div><div class="timeline__dot"></div><div class="timeline__body"><h3 class="timeline__title">Ausklang des Abends</h3><p class="timeline__description">Ein letzter gemeinsamer Moment</p></div></div></div></div></section><footer class="footer"><div class="footer__names">Steffi & Mauril</div><p class="footer__tagline">Wir freuen uns auf euch · 05. September 2026</p></footer><script>// Burger menu
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+
+    burger.addEventListener('click', () => {
+        const isOpen = drawer.classList.toggle('nav-drawer--open');
+        burger.classList.toggle('nav__burger--open', isOpen);
+        burger.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+    });
+
+    drawer.querySelectorAll('.nav-drawer__link').forEach(link => {
+        link.addEventListener('click', () => {
+            drawer.classList.remove('nav-drawer--open');
+            burger.classList.remove('nav__burger--open');
+        });
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('u-reveal--visible');
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.u-reveal').forEach(el => revealObserver.observe(el));
+
+    // Timeline reveal
+    const timelineObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('timeline__item--visible');
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.timeline__item').forEach(el => timelineObserver.observe(el));</script></body></html>
